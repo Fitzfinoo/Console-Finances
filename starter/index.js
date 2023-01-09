@@ -100,14 +100,15 @@ for (let i = 0; i < finances.length; i++){
 //console.log(months);
 
 //The total number of months included in the dataset.
-console.log("Total months:", (finances.length));
+
+//console.log("Total months:", (finances.length));
 
 ///The net total amount of Profit/Losses over the entire period.
 let totalSum = 0;
 for (let i = 0; i < finances.length; i++){
    totalSum += finances[i][1]
 }
-console.log("Total:$",totalSum);
+//console.log("Total:$",totalSum);
 
 
 
@@ -117,7 +118,7 @@ let averageChange = 0;
 for (let i = 0; i < finances.length; i++){
    averageChange += finances[i][1]
 }
-console.log("Avaerage Changes:$",averageChange/(finances.length));
+//console.log("Avaerage Changes:$",averageChange/(finances.length));
 
 
 
@@ -125,40 +126,66 @@ console.log("Avaerage Changes:$",averageChange/(finances.length));
 //Greatest increase in amount
 let maxProfit = 0;
 let index = 0;
+let dateMax =0;
 for (let i= 0; i < finances.length; i++) {
    if (finances[i][1] > maxProfit){
       maxProfit = finances[i][1];
+      dateMax = finances [i][0]
       index = i
    }
-   console.log(maxProfit)
+   //console.log(maxProfit)
 }
 
 let arrayMP =[maxProfit];
 let maxMP = arrayMP[0]
-console.log("The Greatest Profit: $", maxMP);
+//console.log("The Greatest Profit:", dateMax, "($", maxMP,")");
    
 
-///Greatert loss in amount
+///Greatet loss in amount and date
 
 let maxLoss = 0;
+let date = 0
 
 for (let i = 0; i < finances.length; i++){
    if (finances[i][1] <= maxLoss) {
       maxLoss = finances[i][1];
+      date = finances[i][0]
       index =i;
    }   
-   console.log(maxLoss)
+   //console.log(maxLoss, date)
    };
 
 
 let arrayML =[maxLoss];
 let minML = arrayML[0];
-console.log("The Greatest Loss: $",minML);
-console.log(arrayML);
+//console.log("The Greatest Loss:", date, "($",minML,")");
 
-/////greatest date
-let mL = (finances);
-let position = mL.indexOf("-1196225") -2
-console.log("The Greatest Loss in Month:", position);
+
+
+//////Report///
+
+console.log(
+`
+Financial Analysis
+
+Total Months : ${ (finances.length)}
+Total : $ ${totalSum}
+Average Change: ${averageChange}
+Greatest Increase in Profits : ${dateMax} $(${maxProfit})
+Greatest Decrease in Profits : ${date} $(${maxLoss})
+
+
+
+
+
+`
+
+
+
+
+)
+
+
+
 
 
