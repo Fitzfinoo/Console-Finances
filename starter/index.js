@@ -118,7 +118,7 @@ let averageChange = 0;
 for (let i = 0; i < finances.length; i++){
    averageChange += finances[i][1]
 }
-//console.log("Avaerage Changes:$",averageChange/(finances.length));
+
 
 
 
@@ -170,7 +170,7 @@ Financial Analysis
 
 Total Months : ${ (finances.length)}
 Total : $ ${totalSum}
-Average Change: ${averageChange}
+Average Change: $ ${averageChange/finances.length}
 Greatest Increase in Profits : ${dateMax} $(${maxProfit})
 Greatest Decrease in Profits : ${date} $(${maxLoss})
 
